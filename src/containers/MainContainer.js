@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import ReviewContainer from './ReviewContainer.js'
+import BarContainer from './BarContainer.js'
 
 export default class MainContainer extends Component {
-    componentDidMount = () => {
-        fetch('')
-    }
+
     render() {
         return (
             <div>
-                {"hey whats up hello"}
+                <ReviewContainer reviews={this.props.reviews} bars={this.props.bars}/>
+                <BarContainer bars={this.props.bars} reviews={this.props.reviews}/>
             </div>
         )
     }
