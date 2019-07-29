@@ -19,7 +19,7 @@ export default class SignUpForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/signup', {
+        fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

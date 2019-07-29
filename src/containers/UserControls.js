@@ -7,6 +7,7 @@ export default class UserControls extends Component {
             <div className='user-controls'>
                 <Link to='/signup'><button>Sign Up</button></Link>
                 <Link to='/login'><button>Login</button></Link>
+                <button onClick={this.props.logout}>Current User: {this.props.currentUser ? this.props.currentUser.username: "NOT SIGNED IN"}</button>
             </div>
         )
     }

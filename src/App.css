@@ -5,17 +5,20 @@
 	padding: 0;
 	list-style: none; }
 #nav li {
-	float: left; }
-
-#nav li a {
+	float: left; 
 		display: block;
 		padding: 8px 15px;
 		text-decoration: none;
 		font-weight: bold;
 		color: #069;
-		border-right: 1px solid #ccc; }
+		border-right: 1px solid #ccc;}
+
 
 .bar {
 	border: solid;
   	border-color: red;
+}
+.review {
+	border: solid;
+  	border-color: blue;
 }

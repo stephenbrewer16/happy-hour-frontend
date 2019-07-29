@@ -7,12 +7,12 @@ export default class Nav extends Component {
         return (
             <div>
                 <ul id="nav">
-                    <Link to='/'><li><a href="#home">Home</a></li></Link>
-                    <li><a href="#bars">Bars</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#profile">Profile</a></li>
+                    <Link to='/'><li>Home</li></Link>
+                    <li>Bars</li>
+                    <li>Reviews</li>
+                    <li>Profile</li>
                 </ul>
-                <UserControls currentUser={this.props.currentUser}/>
+                <UserControls currentUser={this.props.currentUser} logout={this.props.logout}/>
             </div>
         )
     }
