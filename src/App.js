@@ -6,6 +6,9 @@ import { Route, Switch } from 'react-router-dom'
 import SignUpForm from './components/SignUpForm'
 import LoginForm from './components/LoginForm'
 import NewReview from './components/NewReview'
+import NewBarForm from './components/NewBarForm';
+import UserPage from './components/UserPage'
+
 
 export default class App extends Component {
   state = {
@@ -73,16 +76,25 @@ export default class App extends Component {
       favorites: [bar, ...this.state.favorites]
     })
   }
+  addBar = (newBar) => {
+    this.setState({
+      bars: [newBar, ...this.state.bars]
+    }, () => {
+      this.props.history.push("/")
+    })
+  }
   render() {
     console.log(this.state.currentUser)
     return (
       <div className="app">
         < Nav currentUser={this.state.currentUser} logout={this.logout}/>
         <Switch>
+          <Route path='/users/:id' render={(routerProps)=> <UserPage currentUser={this.state.currentUser}favorites={this.state.favorites}{...routerProps}/>}/>
+          <Route path='/addbar' render={(routerProps)=> <NewBarForm currentUser={this.state.currentUser} bars={this.state.bars} addBar={this.addBar}{...routerProps}/>}/>
           <Route path='/addreview' render={(routerProps)=> <NewReview currentUser={this.state.currentUser} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/>
           <Route path='/signup' render={(routerProps)=> <SignUpForm setUser={this.setUser}{...routerProps}/>}/>
           <Route path='/login' render={(routerProps)=> <LoginForm setUser={this.setUser}{...routerProps}/>}/>
-          <Route path='/' render={(routerProps) => < MainContainer reviews={this.state.reviews} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/> 
+          <Route path='/' render={(routerProps) => < MainContainer addFavorite={this.addFavorite} reviews={this.state.reviews} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/> 
         </Switch>
       </div>
     )

@@ -10,7 +10,7 @@ export default class Nav extends Component {
                     <Link to='/'><li>Home</li></Link>
                     <li>Bars</li>
                     <li>Reviews</li>
-                    <li>Profile</li>
+                    <Link to='/users/:id'><li>Profile</li></Link>
                 </ul>
                 <UserControls currentUser={this.props.currentUser} logout={this.props.logout}/>
             </div>
