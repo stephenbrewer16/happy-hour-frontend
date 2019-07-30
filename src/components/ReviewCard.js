@@ -38,6 +38,14 @@ export default class ReviewCard extends Component {
             edit: false
         }))
     }
+    deleteReview = () => {
+        fetch(`http://localhost:3000/reviews/${this.props.review.id}`, {
+            method: 'DELETE'
+        })
+        .then(resp => {
+            this.props.removeReview(this.props.review.id)
+        })
+    }
     render() {
         return (
             <div className="review">
@@ -48,7 +56,7 @@ export default class ReviewCard extends Component {
                     <h4>{this.props.review.comment}</h4>
                     <p>{this.props.review.user.username}</p>
                     {this.props.editable ? <button onClick={this.handleClick}>Edit</button> : ""} 
-                    {this.props.editable ? <button>Delete</button> : ""}
+                    {this.props.editable ? <button onClick={this.deleteReview}>Delete</button> : ""}
                 </div>:
                 <div>
                     <form onSubmit={this.handleSubmit}>
