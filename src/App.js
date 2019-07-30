@@ -62,7 +62,17 @@ export default class App extends Component {
       this.props.history.push("/")
     })
   }
-
+  updateReview = (editReview) => {
+    this.setState({
+      reviews: this.state.reviews.map(review => {
+        if(review.id === editReview.id){
+          return editReview
+        }else{
+          return review
+        }
+      })
+    })
+  }
   logout = () => {
     this.setState({
       currentUser: null
@@ -77,18 +87,24 @@ export default class App extends Component {
       this.props.history.push("/")
     })
   }
+  sortBarsByReview = () => {
+    this.setState({
+      bars: this.state.bars.sort((a,b) => a.reviews.length < b.reviews.length ? 1 : -1)
+    })
+  }
   render() {
     console.log(this.state.currentUser)
+    
     return (
       <div className="app">
         < Nav currentUser={this.state.currentUser} logout={this.logout}/>
         <Switch>
-          <Route path='/users/:id' render={(routerProps)=> <UserPage currentUser={this.state.currentUser} reviews={this.state.reviews}  {...routerProps}/>}/>
+          <Route path='/users/:id' render={(routerProps) => <UserPage updateReview={this.updateReview} currentUser={this.state.currentUser} reviews={this.state.reviews}  {...routerProps}/>}/>
           <Route path='/addbar' render={(routerProps)=> <NewBarForm currentUser={this.state.currentUser} bars={this.state.bars} addBar={this.addBar}{...routerProps}/>}/>
           <Route path='/addreview' render={(routerProps)=> <NewReview currentUser={this.state.currentUser} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/>
           <Route path='/signup' render={(routerProps)=> <SignUpForm setUser={this.setUser}{...routerProps}/>}/>
           <Route path='/login' render={(routerProps)=> <LoginForm setUser={this.setUser}{...routerProps}/>}/>
-          <Route path='/' render={(routerProps) => < MainContainer currentUser={this.state.currentUser} reviews={this.state.reviews} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/> 
+          <Route path='/' render={(routerProps) => < MainContainer updateReview={this.updateReview} sortBarsByReview={this.sortBarsByReview} currentUser={this.state.currentUser} reviews={this.state.reviews} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/> 
         </Switch>
       </div>
     )

@@ -8,8 +8,8 @@ export default class Nav extends Component {
             <div>
                 <ul id="nav">
                     <Link to='/'><li>Home</li></Link>
-                    <li>Bars</li>
-                    <li>Reviews</li>
+                    <Link to='addreview'><li>Submit a Review</li></Link>
+                    <Link to='addbar'><li>Add a Bar</li></Link>
                     <Link to='/users/:id'><li>Profile</li></Link>
                 </ul>
                 <UserControls currentUser={this.props.currentUser} logout={this.props.logout}/>
