@@ -11,7 +11,7 @@ export default class MainContainer extends Component {
                 <Link to='addreview'><button>Write A New Review</button></Link>
                 <Link to='addbar'><button>Add a new Bar</button></Link>
                 <ReviewContainer reviews={this.props.reviews} bars={this.props.bars}/>
-                <BarContainer addFavorite={this.props.addFavorite} bars={this.props.bars} reviews={this.props.reviews}/>
+                <BarContainer bars={this.props.bars} reviews={this.props.reviews}/>
             </div>
         )
     }

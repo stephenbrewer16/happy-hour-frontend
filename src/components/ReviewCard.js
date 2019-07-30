@@ -8,6 +8,8 @@ export default class ReviewCard extends Component {
                 <h3>{this.props.review.rating}/10</h3>
                 <h4>{this.props.review.comment}</h4>
                 <p>{this.props.review.user.username}</p>
+                {this.props.editable ? <button>Edit</button> : ""} 
+                {this.props.editable ? <button>Delete</button> : ""} 
             </div>
         )
     }

@@ -14,7 +14,6 @@ export default class App extends Component {
   state = {
     reviews: [],
     bars: [],
-    favorites: [],
     currentUser: null
   }
 
@@ -71,11 +70,6 @@ export default class App extends Component {
       localStorage.removeItem("token")
       this.props.history.push("/login")})
   }
-  addFavorite = (bar) => {
-    this.setState({
-      favorites: [bar, ...this.state.favorites]
-    })
-  }
   addBar = (newBar) => {
     this.setState({
       bars: [newBar, ...this.state.bars]
@@ -89,12 +83,12 @@ export default class App extends Component {
       <div className="app">
         < Nav currentUser={this.state.currentUser} logout={this.logout}/>
         <Switch>
-          <Route path='/users/:id' render={(routerProps)=> <UserPage currentUser={this.state.currentUser}favorites={this.state.favorites}{...routerProps}/>}/>
+          <Route path='/users/:id' render={(routerProps)=> <UserPage currentUser={this.state.currentUser} reviews={this.state.reviews}  {...routerProps}/>}/>
           <Route path='/addbar' render={(routerProps)=> <NewBarForm currentUser={this.state.currentUser} bars={this.state.bars} addBar={this.addBar}{...routerProps}/>}/>
           <Route path='/addreview' render={(routerProps)=> <NewReview currentUser={this.state.currentUser} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/>
           <Route path='/signup' render={(routerProps)=> <SignUpForm setUser={this.setUser}{...routerProps}/>}/>
           <Route path='/login' render={(routerProps)=> <LoginForm setUser={this.setUser}{...routerProps}/>}/>
-          <Route path='/' render={(routerProps) => < MainContainer addFavorite={this.addFavorite} reviews={this.state.reviews} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/> 
+          <Route path='/' render={(routerProps) => < MainContainer currentUser={this.state.currentUser} reviews={this.state.reviews} bars={this.state.bars} addReview={this.addReview} {...routerProps}/>}/> 
         </Switch>
       </div>
     )
