@@ -9,8 +9,8 @@ export default class BarContainer extends Component {
     }
     render() {
         return (
-            <div>
-                <button onClick={this.props.sortBarsByReview}>Sort By Most Reviews</button>
+            <div className="bar-container">
+                <button className='btn' onClick={this.props.sortBarsByReview}>Sort By Most Reviews</button>
                 {this.renderBars()}
             </div>
         )

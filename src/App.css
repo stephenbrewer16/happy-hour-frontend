@@ -3,7 +3,8 @@
 	float: left;
 	margin: 0 0 3em 0;
 	padding: 0;
-	list-style: none; }
+	list-style: none;
+}
 #nav li {
 	float: left; 
 		display: block;
@@ -15,10 +16,42 @@
 
 
 .bar {
-	border: solid;
-  	border-color: red;
+	background-color: bisque;
+	border-radius: 20px;
+	padding: 7px;
+	margin:10px 0
 }
 .review {
-	border: solid;
-  	border-color: blue;
+	background-color: lightgreen;
+	border-radius: 20px;
+	padding: 7px;
+	margin:10px 0
+}
+.user-controls{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.btn {
+	height: 30px;
+	width: 120px;
+	border-radius: 5px;
+	margin: 5px;
+	cursor: pointer;
+}
+.btn:hover{
+	background-color: aqua;
+}
+.btn.logout{
+	width: 200px;
+}
+.bar-container{
+	margin-left: 10px;
+	width: 49vw;
+	float:left;
+}
+.review-container{
+	margin-right: 10px;
+	width: 49vw;
+	float:right;
 }

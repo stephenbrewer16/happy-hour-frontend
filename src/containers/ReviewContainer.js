@@ -9,7 +9,9 @@ export default class ReviewContainer extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="review-container">
+                <br/>
+                <br/>
                 {this.renderReviews()}
             </div>
         )
