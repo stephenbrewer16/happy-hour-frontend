@@ -8,6 +8,7 @@ export default class BarBack extends Component {
             <div>
                 <p>Rating: {this.props.review.rating}</p>
                 <p>Comment: {this.props.review.comment}</p>
+                <p>***********************</p>
             </div>
         )
     }

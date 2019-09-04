@@ -101,7 +101,7 @@ export default class App extends Component {
     console.log(this.state.currentUser)
     
     return (
-      <div className="app">
+      <div >
         < Nav currentUser={this.state.currentUser} logout={this.logout}/>
         <Switch>
           <Route path='/users/:id' render={(routerProps) => <UserPage removeReview={this.removeReview} updateReview={this.updateReview} currentUser={this.state.currentUser} reviews={this.state.reviews}  {...routerProps}/>}/>

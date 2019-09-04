@@ -55,3 +55,7 @@
 	width: 49vw;
 	float:right;
 }
+body{
+	background-image: url("https://www.bestwesternva.com/wp-content/uploads/sites/67/2019/02/happy-hour-sign.jpg");
+	background-size: cover;
+}
